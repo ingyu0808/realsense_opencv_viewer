@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>realsense_opencv_viewer</name>
+  <version>0.1.0</version>
+  <description>RealSense ROS 2 topics (color + aligned depth) to an OpenCV window via cv_bridge, with per-pixel distance readout.</description>
+  <maintainer email="chldlsrbmoral05@gmail.com">ingyu</maintainer>
+  <license>Apache-2.0</license>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>message_filters</exec_depend>
+  <exec_depend>python3-opencv</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <!--
+    viewer.launch.py 는 realsense2_camera 를 함께 띄우지만, 일부러 의존성에 넣지 않았다.
+    넣으면 rosdep 이 ros-humble-realsense2-camera(최신 SDK 기반)를 설치하려 해서
+    L515 때문에 버전을 고정한 librealsense 2.54.1 / realsense-ros 4.54.1 환경과 충돌할 수 있다.
+    realsense-ros 는 README 대로 따로 설치한다.
+  -->
+
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
